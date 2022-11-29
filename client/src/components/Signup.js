@@ -21,10 +21,6 @@ function Signup() {
   const [open, setOpen] = useState(false);
   const [submitMessage, setSubmitMessage] = useState();
 
-  const logoutClearToken = async () => {
-    await axios.get("http://localhost:5000/api/delete-cookie-token", { withCredentials: true });
-  };
-
   const handleClick = () => {
     setOpen(true);
   };
@@ -49,16 +45,11 @@ function Signup() {
     sendRequest();
   }
 
-  function newEmailVerification() {
-    axios.post("http://localhost:5000/api/update-verified/send-email", { email: inputs.email }).then((res) => {});
-  }
-
   const sendRequest = async () => {
     await axios
       .post("http://localhost:5000/api/signup", { name: inputs.name, email: inputs.email, password: inputs.password })
       .then((res) => {
         console.log(res.data);
-        newEmailVerification();
 
         setTimeout(() => {
           history("/login");
@@ -82,7 +73,7 @@ function Signup() {
       isLoggedIn: false,
     }));
 
-    logoutClearToken();
+
   }, []);
 
   return (

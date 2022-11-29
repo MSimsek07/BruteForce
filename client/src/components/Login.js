@@ -132,16 +132,7 @@ function Login() {
             Login
           </Button>
         </Box>
-        <Button
-          style={{
-            marginTop: "1rem",
-          }}
-          onClick={() => {
-            history("/forgot-password/send-email");
-          }}
-        >
-          Forgot Password?
-        </Button>
+    
       </form>
     </div>
   );

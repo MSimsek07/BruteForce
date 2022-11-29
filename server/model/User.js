@@ -15,10 +15,6 @@ const userSchema = new Schema({
     required: true,
     minLength: 6,
   },
-  verified: {
-    type: Boolean,
-    default: false,
-  },
 }); // Create user schema
 
 module.exports = mongoose.model("User", userSchema); 

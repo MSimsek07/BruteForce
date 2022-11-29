@@ -1,7 +1,6 @@
 const express = require("express"); 
 const mongoose = require("mongoose"); 
 const router = require("./routes/user-routes"); 
-const cookieParser = require("cookie-parser"); 
 const cors = require("cors"); // Import cors for react
 const app = express(); 
 require("dotenv").config(); 
@@ -12,7 +11,6 @@ app.use(
     origin: "http://localhost:3000",
   })
 ); // Use cors
-app.use(cookieParser()); 
 app.use(express.json());
 app.use("/api", router);
 
